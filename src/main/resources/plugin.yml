@@ -1,0 +1,7 @@
+name: AuthMeUI
+version: '${version}'
+api-version: 1.13
+main: io.github.galaxyvn.authmeui.AuthMeUI
+authors: [ GalaxyVN ]
+commands:
+  authmeui:

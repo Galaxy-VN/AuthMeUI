@@ -34,8 +34,9 @@ public final class AuthMeUI extends JavaPlugin {
         logger.info("Hooking...");
 
         if (!Bukkit.getPluginManager().isPluginEnabled("AuthMe") || !Bukkit.getPluginManager().isPluginEnabled("Floodgate")) {
-            logger.warning("Missing plugin AuthMe or Floodgate! Disable plugin...");
+            logger.warning("Missing plugin AuthMe or Floodgate (with Geyser)! Disable plugin...");
             Bukkit.getPluginManager().disablePlugin(this);
+            return;
         }
 
         logger.info("Loading Successfully");

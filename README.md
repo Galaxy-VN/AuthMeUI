@@ -1,4 +1,4 @@
-# AuthMEUI
+# AuthMeUI
 - Adding Login/Register Forms support for AuthMe plugin
 ## Compile
 1. ```git clone https://github.com/Galaxy-VN/AuthMeUI```

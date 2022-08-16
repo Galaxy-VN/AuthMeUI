@@ -27,20 +27,20 @@ public class PlayerJoinListener implements Listener {
             CustomForm.Builder form = CustomForm.builder()
                     .title(config.getString("title"))
                     .input(config.getString("input_title"), config.getString("input_placeholder"))
+                    .closedOrInvalidResultHandler(() -> player.kickPlayer(config.getString("close")))
                     .validResultHandler(response -> {
                         String password = response.asInput();
 
+                        System.out.println("Response Password:" + password);
+
                         if (AuthMeApi.getInstance().isRegistered(player.getName())) {
-                            if (AuthMeApi.getInstance().checkPassword(player.getName(), response.asInput())) {
+                            if (AuthMeApi.getInstance().checkPassword(player.getName(), password)) {
                                 AuthMeApi.getInstance().forceLogin(player);
                             } else
                                 player.kickPlayer(config.getString("wrong_password"));
                         } else
                             AuthMeApi.getInstance().forceRegister(player, password, true);
-                    })
-                    .closedOrInvalidResultHandler(((customForm, customFormResponseFormResponseResult) -> {
-                        player.kickPlayer(config.getString("close"));
-                    }));
+                    });
 
             // Send Form
             fPlayer.sendForm(form.build());

@@ -31,8 +31,6 @@ public class PlayerJoinListener implements Listener {
                     .validResultHandler(response -> {
                         String password = response.asInput();
 
-                        System.out.println("Response Password:" + password);
-
                         if (AuthMeApi.getInstance().isRegistered(player.getName())) {
                             if (AuthMeApi.getInstance().checkPassword(player.getName(), password)) {
                                 AuthMeApi.getInstance().forceLogin(player);
